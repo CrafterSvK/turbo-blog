@@ -1,0 +1,45 @@
+TABLE blog
++------------+--------------+------+-----+---------+----------------+
+| Field      | Type         | Null | Key | Default | Extra          |
++------------+--------------+------+-----+---------+----------------+
+| id         | int(11)      | NO   | PRI | NULL    | auto_increment |
+| subject    | varchar(255) | NO   |     | NULL    |                |
+| category   | varchar(255) | NO   |     | NULL    |                |
+| content    | text         | NO   |     | NULL    |                |
+| date       | datetime     | NO   |     | NULL    |                |
+| author     | varchar(255) | NO   |     | NULL    |                |
+| view_count | int(11)      | NO   |     | NULL    |                |
++------------+--------------+------+-----+---------+----------------+
+
+TABLE blog_images
++-------+--------------+------+-----+---------+----------------+
+| Field | Type         | Null | Key | Default | Extra          |
++-------+--------------+------+-----+---------+----------------+
+| id    | int(11)      | NO   | PRI | NULL    | auto_increment |
+| name  | varchar(255) | NO   |     | NULL    |                |
+| path  | text         | NO   |     | NULL    |                |
+| date  | datetime     | NO   |     | NULL    |                |
++-------+--------------+------+-----+---------+----------------+
+
+TABLE comments
++---------+--------------+------+-----+---------+----------------+
+| Field   | Type         | Null | Key | Default | Extra          |
++---------+--------------+------+-----+---------+----------------+
+| id      | int(11)      | NO   | PRI | NULL    | auto_increment |
+| post_id | int(11)      | NO   |     | NULL    |                |
+| author  | varchar(255) | NO   |     | NULL    |                |
+| date    | datetime     | NO   |     | NULL    |                |
+| content | text         | NO   |     | NULL    |                |
++---------+--------------+------+-----+---------+----------------+
+
+TABLE users
++------------+--------------+------+-----+---------+----------------+
+| Field      | Type         | Null | Key | Default | Extra          |
++------------+--------------+------+-----+---------+----------------+
+| id         | int(11)      | NO   | PRI | NULL    | auto_increment |
+| username   | varchar(255) | NO   |     | NULL    |                |
+| first_name | varchar(255) | NO   |     | NULL    |                |
+| last_name  | varchar(255) | NO   |     | NULL    |                |
+| password   | varchar(255) | NO   |     | NULL    |                |
++------------+--------------+------+-----+---------+----------------+
+
