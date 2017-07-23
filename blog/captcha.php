@@ -15,7 +15,7 @@ $background = imagecolorallocate($image, 0, 0, 0);
 $foreground = imagecolorallocate($image, 255, 255, 255);
 $line_color = imagecolorallocate($image, 100, 100, 100);
 
-imagettftext($image, 20, 0, 10, 20, $foreground, "/fonts/arial.ttf", $string);
+imagettftext($image, 20, 0, 10, 20, $foreground, "/blog/fonts/arial.ttf", $string);
 
 for($i = 0; $i < 10; $i++) {
     imageline($image, 0, rand()%50, 200, rand()%50, $line_color);
