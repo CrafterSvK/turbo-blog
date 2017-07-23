@@ -1,0 +1,10 @@
+Options +FollowSymLinks
+RewriteEngine on
+
+RewriteRule ^home/([0-9]+)$ home.php?delete=$1
+RewriteRule ^home home.php
+RewriteRule ^add-post add-post.php
+RewriteRule ^edit-post/([0-9]+)$ edit-post.php?id=$1
+RewriteRule ^edit-post edit-post.php
+RewriteRule ^upload upload.php 
+RewriteRule ^upload/([0-9]+)$ upload.php?delete=$1
