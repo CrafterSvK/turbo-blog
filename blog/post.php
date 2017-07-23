@@ -12,8 +12,6 @@ $blog->add_view($_GET["id"]);
 $post = $blog->get_post($_GET["id"]);
 $comments = $comments_class->get_all($_GET["id"]);
 ?>
-<div id="content">
-<div id="post">
 <article>
 <?php
 if (empty($_GET["id"])) {
@@ -53,12 +51,11 @@ if ($blog->post_exist($post["id"]) == false) {
 
 ?>
 </article>
-</div>
 Add comment: <br />
 <form method="post">
 	<input type="text" name="author" placeholder="Name" required /><br />
 	<textarea name="comment_content" placeholder="Comment" style="resize: none;" required ></textarea><br />
-	<img src="/janek/captcha" /><br />
+	<img src="/blog/captcha.php" /><br />
 	<input type="text" name="captcha" placeholder="Captcha" /><br />
 	<input type="submit" value="Comment" name="submit" />
 </form>
@@ -80,9 +77,3 @@ if ($comments) {
 	echo "No comments to display!";
 }
 ?>
-</div>
-<?php
-include "footer.php";
-?>
-</body>
-</html>
