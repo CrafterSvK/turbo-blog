@@ -8,4 +8,7 @@ Simple and fast blog engine written in PHP
 * Add style and some HTML code so it looks gorgeous. Sorry for not including stylesheet and stuff.
 
 ## Style
-I am not really a aesthetic person so I leave this for a people that know some stuff
+Currently working on css-grid layout with easy theme support.
+
+## Current Goal
+Write dynamic css-grid style with theme support.
