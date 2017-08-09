@@ -15,7 +15,7 @@ $comments = $comments_class->get_all($_GET["id"]);
 <article>
 <?php
 if (empty($_GET["id"])) {
-	header("Location: /blog");
+	header("Location: ".$config->installation_path);
 }
 
 if (isset($_POST["submit"])) {
@@ -33,14 +33,14 @@ if (isset($_POST["submit"])) {
 }
 
 if ($blog->post_exist($post["id"]) == false) {
-	header("Location: /blog");
+	header("Location: ".$config->installation_path);
 } else {
 	$date = date("d.m.Y H:m", strtotime($post['date']));
 
-	echo "<h1><a id='title' href='/blog/post.php?id=".$post['id']."'>".$post['subject']."</a></h1>"
+	echo "<h1><a id='title' href='".$config->installation_path."/post.php?id=".$post['id']."'>".$post['subject']."</a></h1>"
 		.date("d.m.Y H:m", strtotime($post['date']))
 		."<br />"
-		."<b><a id='hashtag' href='/blog/hashtag.php?string=".$post['category']."'>#".$post['category']."</a></b>"
+		."<b><a id='hashtag' href='".$config->installation_path."/hashtag.php?string=".$post['category']."'>#".$post['category']."</a></b>"
 		."<br />"
 		."<p>"
 		.$post['content']
@@ -55,7 +55,7 @@ Add comment: <br />
 <form method="post">
 	<input type="text" name="author" placeholder="Name" required /><br />
 	<textarea name="comment_content" placeholder="Comment" style="resize: none;" required ></textarea><br />
-	<img src="/blog/captcha.php" /><br />
+    <img src="<?php echo $config->installation_path; ?>/captcha.php" /><br />
 	<input type="text" name="captcha" placeholder="Captcha" /><br />
 	<input type="submit" value="Comment" name="submit" />
 </form>

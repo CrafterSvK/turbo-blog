@@ -8,6 +8,11 @@ include "../class/blog.php";
 $blog = new Blog();
 $user = new User();
 
+if (isset($_GET["delete"])) {
+    unlink("install.php");
+    header("Location: index.php");
+}
+
 if ($user->is_logged_in() == true) {
 	header("Location: home.php");
 }

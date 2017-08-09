@@ -23,9 +23,9 @@ if (isset($_POST["submit"])) {
 	$last_name = $user_row["last_name"];
 
 	if ($blog->add_post($subject, $category, $content, $first_name, $last_name) == true) {
-		header("Location: /blog/admin/home.php");
+		header("Location: ".$config->installation_path."/admin/home.php");
 	} else {
-		header("Location: /blog/admin/home.php");	
+		header("Location: ".$config->installation_path."/admin/home.php");	
 	}
 }
 

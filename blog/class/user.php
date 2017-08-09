@@ -5,8 +5,8 @@ class User extends Database {
 		$hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
 		$query = "INSERT INTO users (username, first_name, last_name, password) VALUES (?, ?, ?, ?)";
-		$stmt = $this->mysqli->prepare($query);
-		$stmt->bind_param("ssss", $username, $first_name, $last_name, $hashed_password);
+		$stmt = $this->mysqli->prepare($query);   
+        $stmt->bind_param("ssss", $username, $first_name, $last_name, $hashed_password);
 		$stmt->execute();
 	
 		$result = $stmt->get_result();

@@ -36,6 +36,6 @@ $images = $upload->return_images();
 
 foreach ($images as $image) {
 	echo "<img src='".$image["path"]."'></img>"
-		."<p>".$image["name"]." | "."<a href='/blog/admin/upload.php?delete=".$image["id"]."'>Delete image</a></p>";
+		."<p>".$image["name"]." | "."<a href='".$config->installation_path."/admin/upload.php?delete=".$image["id"]."'>Delete image</a></p>";
 }
 ?>

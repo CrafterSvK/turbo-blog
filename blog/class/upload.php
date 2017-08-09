@@ -4,11 +4,11 @@ class Upload extends Database {
 	public function add_image($name, $image) {
 		$date = date("Y-m-d H:i:s");
 		$random_name = $this->_generate_name(10);
-		$path_to_file = $_SERVER['DOCUMENT_ROOT']."/blog/cdn/blog/".$random_name.".png";
+		$path_to_file = $_SERVER['DOCUMENT_ROOT']."/cdn/blog/".$random_name.".png";
 
 		while (file_exists($path_to_file)) {
 			$random_name = $this->_generate_name(10);
-			$path_to_file = $_SERVER['DOCUMENT_ROOT']."/blog/cdn/blog/".$random_name.".png";	
+			$path_to_file = $_SERVER['DOCUMENT_ROOT']."/cdn/blog/".$random_name.".png";	
 		}
 		
 		move_uploaded_file($image, $path_to_file);

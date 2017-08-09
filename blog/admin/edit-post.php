@@ -30,9 +30,9 @@ if (isset($_POST["submit"])) {
 	$last_name = $user_row["last_name"];
 
 	if ($blog->edit_post($id, $subject, $category, $content) == true) {
-		header("Location: /blog/admin/home.php");
+		header("Location: ".$config->installation_path."/admin/home.php");
 	} else {
-		header("Location: /blog/admin/home.php");	
+		header("Location: ".$config->installation_path."/admin/home.php");	
 	}
 }
 
@@ -41,6 +41,6 @@ if (isset($_POST["submit"])) {
 <input id="subject" type="text" name="subject" value="<?php echo $post["subject"]; ?>" placeholder="Title" required/>
 	<input id="category" type="text" name="category" value="<?php echo $post["category"]; ?>" placeholder="Category" required /><br />
 	<textarea id="editor_input" name="content" style="width: 600px; height: 600px;" required ><?php echo $post["content"]; ?></textarea><br />
-		<a href="javascript:void();" onclick="window.open('upload', 'newwindow', 'width=900,height=600'); return false;"><input type="button" value="Upload image" /></a><br />
+		<a href="javascript:void();" onclick="window.open('upload.php', 'newwindow', 'width=900,height=600'); return false;"><input type="button" value="Upload image" /></a><br />
 	<input type="submit" name="submit" id="submit" value="Submit post" /><br />
 </form>

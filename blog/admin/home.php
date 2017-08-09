@@ -29,16 +29,16 @@ foreach ($posts as $post) {
 		."<td>".$post["category"]."</td>"
 		."<td>".$date."</td>"
 		."<td>".$post["view_count"]."</td>"
-		."<td>"."<a href='/blog/admin/edit-post.php?id=".$post["id"]."'>Edit</a>"
-		."<td>"."<a href='/blog/admin/home.php?delete=".$post["id"]."'>Delete</a>"."</td>"
+		."<td>"."<a href='".$config->installation_path."/admin/edit-post.php?id=".$post["id"]."'>Edit</a>"
+		."<td>"."<a href='".$config->installation_path."/admin/home.php?delete=".$post["id"]."'>Delete</a>"."</td>"
 		."</tr>";
 }
 
 echo "</table>"
 	."<br />"
-	."<a href='/blog/admin/add-post.php'>Add post</a>"
+	."<a href='".$config->installation_path."/admin/add-post.php'>Add post</a>"
 	." | "
-	."<a href='/blog'>Preview</a>"
+	."<a href='".$config->installation_path."'>Preview</a>"
 	."</center>";
 
 ?>

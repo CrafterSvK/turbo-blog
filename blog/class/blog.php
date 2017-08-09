@@ -5,8 +5,18 @@ class Blog extends Database {
 		$offset = $page_number * 5;
 
 		//Display blog
-		$query = "SELECT * FROM blog ORDER BY date DESC LIMIT 5 OFFSET ?";
-		$stmt = $this->mysqli->prepare($query);
+		$query = "SELECT * FROM blog ORDER BY date DESC LIMIT 5 OFFSET ?"; 
+        $stmt = $this->mysqli->prepare($query);
+
+        //I know this seems sketchy but it's error handling ain't it?
+        if ($stmt === false) {
+            echo "Look into config.php file and edit it seems there is a error there. "
+                ."If there ain't problem report this please: "
+                ."<a href='https://github.com/craftersvk/turbo-blog/issues'>Here</a>";
+
+            error_reporting(0);
+        }
+        
 		$stmt->bind_param("i", $offset);
 		$stmt->execute();
 
@@ -29,15 +39,15 @@ class Blog extends Database {
 		//Most sketchiest thing I have ever made
 		if ($result->num_rows >= 6) {
 			if ($page_number == 0) {
-				echo "<a href='/janek/page/".$next."'>Next</a>";
+				echo "<a href='".$this->config->installation_path."/index.php?page=".$next."'>Next</a>";
 			} else {
-				echo "<a href='/janek/page/".$previous."'>Prev</a>"
+				echo "<a href='".$this->config->installation_path."/index.php?page=".$previous."'>Prev</a>"
 					." | "
-					."<a href='/janek/page/".$next."'>Next</a>";
+					."<a href='".$this->config->installation_path."/index.php?page=".$next."'>Next</a>";
 			}	
 		} else {
 			if ($page_number != 0) {
-				echo "<a href='/janek/page/".$previous."'>Previous</a>";
+				echo "<a href='".$this->config->installation_path."/index.php?page=".$previous."'>Previous</a>";
 			} 
 		}	
 	}
@@ -45,14 +55,14 @@ class Blog extends Database {
 	private function _print_blog($posts) {
 		foreach ($posts as $post) {
 			echo "<article>"
-				."<h1><a id='title' href='/janek/post/".$post['id']."'>".$post['subject']."</a></h1>"
+				."<h1><a id='title' href='".$this->config->installation_path."/post.php?id=".$post['id']."'>".$post['subject']."</a></h1>"
 				.date("d.m.Y H:m", strtotime($post['date']))
 				."<br />"
-				."<b><a id='hashtag' href='/janek/hashtag/".$post['category']."'>#".$post['category']."</a></b>"
+				."<b><a id='hashtag' href='".$this->config->installation_path."/hashtag.php?string=".$post['category']."'>#".$post['category']."</a></b>"
 				."<br />"
 				.$post['content']
 				."<br />"
-				."<a href='/janek/post/".$post['id']."'>Read whole thing...</a>"
+				."<a href='".$this->config->installation_path."/post.php?id=".$post['id']."'>Read whole thing...</a>"
 				."</article>"
 				."<br />";	
 		}	
