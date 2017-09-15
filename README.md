@@ -11,3 +11,4 @@ Currently working on css-grid layout with easy theme support.
 
 ## Current Goal
 Write dynamic css-grid style with theme support.
+Fix image upload.
