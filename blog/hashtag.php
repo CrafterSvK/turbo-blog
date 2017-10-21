@@ -5,11 +5,15 @@ include "./class/user.php";
 
 $blog = new Blog();
 
+include "header.php";
+
 if (empty($_GET["string"])) {
 	header("Location: ".$config->installation_path);
 } else {
 	$posts = $blog->get_all_posts_hashtag($_GET["string"]);
 }
+
+echo "<div class='blog'>";
 
 foreach ($posts as $post) {
 	echo "<article>"
@@ -25,4 +29,7 @@ foreach ($posts as $post) {
 		."<br />";
 }
 
+echo "</div>";
+
+include "footer.php";
 ?>

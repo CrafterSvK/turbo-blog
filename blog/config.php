@@ -9,7 +9,7 @@ class Config {
     public $db_database = ""; //database name ex: "blog"
 
     //Other
-    public $installation_path = "";
+    public $installation_path = "/";
     //path where is blog installed ex: "/turbo-blog/blog" if it's root just leave "/"
 }
 

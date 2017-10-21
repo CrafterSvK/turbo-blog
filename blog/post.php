@@ -8,10 +8,15 @@ include "./class/comments.php";
 $blog = new Blog();
 $comments_class = new Comments();
 
+include "header.php";
+
 $blog->add_view($_GET["id"]);
 $post = $blog->get_post($_GET["id"]);
 $comments = $comments_class->get_all($_GET["id"]);
 ?>
+
+<div class="blog">
+
 <article>
 <?php
 if (empty($_GET["id"])) {
@@ -76,4 +81,8 @@ if ($comments) {
 } else {
 	echo "No comments to display!";
 }
+
+echo "</div>";
+
+include "footer.php";
 ?>

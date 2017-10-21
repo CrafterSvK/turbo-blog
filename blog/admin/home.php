@@ -8,6 +8,8 @@ include "../class/blog.php";
 $blog = new Blog();
 $user = new User();
 
+include "header.php";
+
 if ($user->is_logged_in() == false) {
 	header("Location: index.php");	
 }
@@ -18,8 +20,10 @@ if (!empty($_GET["delete"])) {
 
 $posts = $blog->get_all_posts();
 
-echo "<center>"
-	."<table id='home' cellpadding='5px'>"
+echo "<div class='blog'>" 
+    ."<h1>Admin - home</h1>"
+    ."<div class='blog'>"
+    ."<table id='home' cellpadding='5px'>"
  	."<tr> <th>Title</th> <th>Category</th> <th>Date</th> <th>Views</th>  <th>Edit</th> <th>Delete</th> </tr>";
 
 foreach ($posts as $post) {
@@ -39,7 +43,7 @@ echo "</table>"
 	."<a href='".$config->installation_path."/admin/add-post.php'>Add post</a>"
 	." | "
 	."<a href='".$config->installation_path."'>Preview</a>"
-	."</center>";
+	."</div>";
 
 ?>
 

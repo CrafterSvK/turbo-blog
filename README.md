@@ -4,11 +4,10 @@ Simple and fast blog engine written in PHP
 ## Installation
 * Configure in /blog/config.php
 * Run /blog/install.php and delete it if it won't delete itself.
-* Add style and some HTML code so it looks gorgeous. Sorry for not including stylesheet and stuff.
-
+* Add style and some HTML code so it looks gorgeous.
 ## Style
-Currently working on css-grid layout with easy theme support.
+Written simple css-grid style in themes/ folder. It is not complete so don't expect something cool out there.
 
 ## Current Goal
-Write dynamic css-grid style with theme support.
 Fix image upload.
+Add lightbox support.

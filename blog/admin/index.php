@@ -8,6 +8,8 @@ include "../class/blog.php";
 $blog = new Blog();
 $user = new User();
 
+include "./header.php";
+
 if (isset($_GET["delete"])) {
     unlink("install.php");
     header("Location: index.php");
@@ -29,8 +31,12 @@ if (isset($_POST["submit"])) {
 }
 
 ?>
+<div class="blog" id="login">
+<h2>Admin - login</h2>
 <form method="post">
 	<input type="text" name="username" placeholder="Name"><br />
 	<input type="password" name="password" placeholder="Password"><br />
 	<input type="submit" name="submit" value="Login">
 </form>
+
+</div>
