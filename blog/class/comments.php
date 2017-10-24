@@ -3,17 +3,17 @@ class Comments extends Database {
 
 	public function add_comment($post_id, $author, $raw_content) {
 		$date = date("Y-m-d H:i:s");
-		
+
 		$content = strip_tags($raw_content);
-		
+
 		$content = $this->_make_urls($content);
 
 		$query = "INSERT INTO comments (post_id, author, date, content) VALUES (?, ?, ?, ?)";
 		$stmt = $this->mysqli->prepare($query);
 		$stmt->bind_param("isss", $post_id, $author, $date, $content);
-		
+
 		$stmt->execute();
-		
+
 		$result = $stmt->get_result();
 
 		if ($result) {
@@ -63,11 +63,11 @@ class Comments extends Database {
     	$characters = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     	$characters_length = strlen($characters);
     	$random_string = "";
-		
+
 		for ($i = 0; $i < $length; $i++) {
         	$random_string .= $characters[rand(0, $characters_length - 1)];
     	}
-		
+
 		return $random_string;
 	}
 }

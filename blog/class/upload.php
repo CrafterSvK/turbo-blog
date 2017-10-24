@@ -10,7 +10,7 @@ class Upload extends Database {
 			$random_name = $this->_generate_name(10);
 			$path_to_file = $_SERVER['DOCUMENT_ROOT']."/cdn/blog/".$random_name.".png";	
 		}
-		
+
 		move_uploaded_file($image, $path_to_file);
 
 		$query = "INSERT INTO blog_images (name, path, date) VALUES (?, ?, ?)";
@@ -26,7 +26,7 @@ class Upload extends Database {
 			return false;
 		}
 	}
-	
+
 	public function delete_image($id) {
 		$query = "SELECT path FROM blog_images WHERE id = ?";
 		$stmt = $this->mysqli->prepare($query);
@@ -36,14 +36,14 @@ class Upload extends Database {
 		$result = $stmt->get_result();
 
 		unlink($result);
-		
+
 		$query = "DELETE FROM blog_images WHERE id = ?";
 		$stmt = $this->mysqli->prepare($query);
 		$stmt->bind_param("i", $id);
 		$stmt->execute();
 
 		$result = $stmt->get_result();
-		
+
 		if ($result) {
 			return true;
 		} else {
@@ -78,13 +78,12 @@ class Upload extends Database {
     	$characters = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     	$characters_length = strlen($characters);
     	$random_string = "";
-		
+
 		for ($i = 0; $i < $length; $i++) {
         	$random_string .= $characters[rand(0, $characters_length - 1)];
     	}
-		
+
 		return $random_string;
 	}
-
 }
 ?>

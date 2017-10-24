@@ -10,9 +10,9 @@ $config = new Config();
 class Database extends mysqli {
 
 	public function __construct() {
-    
+
         $config = new Config();
-        
+
         $this->config = $config;
         $this->mysqli = new mysqli($config->db_host, $config->db_username, $config->db_password, $config->db_database);
 		$this->mysqli->set_charset("utf8");

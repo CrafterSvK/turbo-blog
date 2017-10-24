@@ -6,7 +6,7 @@
 
 body {
     display: grid;
-    grid-template-columns: 30% auto 30%;
+    grid-template-columns: 20% auto 20%;
     grid-template-areas: 
     ". header ."
     ". menu ."
@@ -37,6 +37,10 @@ div#login {
     text-align: center;
 }
 
+div#edit-post {
+    text-align: center;
+}
+
 a {
     color: red;
     text-decoration: none;
@@ -47,4 +51,19 @@ a:hover {
     text-decoration: underline;
 }
 
+@media screen and (max-width: 1024px) {
+    body {
+        grid-template-columns: 10% auto 10%;
+    }
+}
 
+@media screen and (max-width: 600px) {
+    body {
+        grid-template-columns: auto;
+        grid-template-areas: 
+        "header"
+        "menu"
+        "blog"
+        "footer";
+    }
+}

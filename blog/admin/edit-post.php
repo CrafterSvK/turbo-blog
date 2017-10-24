@@ -8,6 +8,8 @@ include "../class/blog.php";
 $blog = new Blog();
 $user = new User();
 
+include "./header.php";
+
 if ($user->is_logged_in() == false) {
 	header("Location: home.php");		
 } else {
@@ -37,6 +39,7 @@ if (isset($_POST["submit"])) {
 }
 
 ?>
+<div class="blog" id="edit-post">
 <form method="post">
 <input id="subject" type="text" name="subject" value="<?php echo $post["subject"]; ?>" placeholder="Title" required/>
 	<input id="category" type="text" name="category" value="<?php echo $post["category"]; ?>" placeholder="Category" required /><br />
@@ -44,3 +47,4 @@ if (isset($_POST["submit"])) {
 		<a href="javascript:void();" onclick="window.open('upload.php', 'newwindow', 'width=900,height=600'); return false;"><input type="button" value="Upload image" /></a><br />
 	<input type="submit" name="submit" id="submit" value="Submit post" /><br />
 </form>
+</div>

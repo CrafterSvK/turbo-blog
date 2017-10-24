@@ -8,7 +8,7 @@ class User extends Database {
 		$stmt = $this->mysqli->prepare($query);   
         $stmt->bind_param("ssss", $username, $first_name, $last_name, $hashed_password);
 		$stmt->execute();
-	
+
 		$result = $stmt->get_result();
 
 		if ($result) {
