@@ -9,5 +9,4 @@ Simple and fast blog engine written in PHP
 Written simple css-grid style in themes/ folder. It is not complete so don't expect something cool out there.
 
 ## Current Goal
-Fix image upload.
-Add lightbox support.
+* Build a PHP microframework and rework it in a simple fashion
