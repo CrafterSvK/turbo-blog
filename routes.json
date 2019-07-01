@@ -1,0 +1,30 @@
+{
+  "home": {
+    "route": "/",
+    "controller": "Controller::home"
+  },
+  "posts": {
+    "route": "/posts/{page}",
+    "controller": "Controller::home"
+  },
+  "blog": {
+    "route": "/blog/{alias}",
+    "controller": "Controller::blog"
+  },
+  "about": {
+    "route": "/about",
+    "controller": "Controller::about"
+  },
+  "admin": {
+    "route": "/admin",
+    "controller": "AdminController::admin"
+  },
+  "manipulate-blog-add": {
+    "route": "/admin/blog/{lang}",
+    "controller": "AdminController::manipulate_blog"
+  },
+  "manipulate-blog-edit": {
+    "route": "/admin/blog/{lang}/{bid}",
+    "controller": "AdminController::manipulate_blog"
+  }
+}

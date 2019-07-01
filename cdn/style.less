@@ -1,0 +1,48 @@
+@outer_offset: 20px;
+
+@red: #cc2936;
+@blue: #08415c;
+@grey: #6b818c;
+@brownish: #f1bf98;
+@white: #eee5e9;
+
+body {
+  width: 80vw;
+  margin: @outer_offset auto;
+  background-color: @white;
+
+  * {
+	transition: all 200ms ease;
+  }
+}
+
+header {
+  font-size: 2em;
+}
+
+nav {
+  ul {
+	list-style: none;
+	display: flex;
+	flex-direction: row;
+	padding: 0;
+
+	li {
+	  padding: 0 10px 0 0;
+	}
+  }
+}
+
+a {
+  color: @red;
+  text-decoration: none;
+
+  &:hover {
+	color: @blue;
+  }
+}
+
+footer {
+  padding-top: @outer_offset;
+  font-style: italic;
+}
